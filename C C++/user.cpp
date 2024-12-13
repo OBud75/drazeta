@@ -21,9 +21,9 @@ int User::login(char *raw_password) {
     Password temp_password(raw_password, false);
     if (*password == temp_password.str()) {
         is_logged_in = true;
-        return 0; // Success
+        return 0; 
     }
-    return 1; // Failure
+    return 1; 
 };
 
 User& User::get(int id) {
