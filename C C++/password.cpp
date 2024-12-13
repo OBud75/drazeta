@@ -13,7 +13,7 @@ Password::Password(const std::string &password, bool is_encrypted):
 };
 
 void Password::encrypt(const std::string &password) {
-    // Implementation using SHA-256
+    
     unsigned char hash[SHA256_DIGEST_LENGTH];
     SHA256(reinterpret_cast<const unsigned char*>(password.c_str()), password.size(), hash);
 
