@@ -3,6 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
+#include "password.hpp"
 
 User::User(int id, Password &password):
     id(id), password(&password) {
@@ -45,5 +46,17 @@ User& User::get(int id) {
         }
     }
     file.close();
+	// Pour éviter d'avoir à gérer la mémoire allouée avec new, on préfère
+	// souvent renvoyer un smart pointer. std::make_unique<User>(id, pwd);
+
+	// En fonction des cas, on peut penser à un vecteur/map contenant des User ou des unique_ptr<User>
+	// Cela permet d'avoir un conteneur qui gère la mémoire automatiquement
+	// puis de renvoyer une référence ou un pointeur vers l'élément souhaité
+	// et ainsi de ne pas avoir à se soucier de la libération de la mémoire
+	// std::vector<std::unique_ptr<User>> users;
+	// users.push_back(std::make_unique<User>(id, std::move(password)));
+	// return users.back();
+
+	// Regardez également du côté de std::move pour utiliser les mêmes blocs mémoire des 2 cotés du return
     throw std::runtime_error("User not found.");
 }
