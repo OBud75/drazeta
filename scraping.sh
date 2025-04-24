@@ -54,3 +54,6 @@ echo "Scraping et insertion terminés."
 
 # Nettoyage des fichiers temporaires
 rm sitemap.xml asset_urls.txt
+
+# Au lieu d'échapper les apostrophes, on peut (comme vous l'avez fait en python), passer les variables en arguments
+# "INSERT INTO $TABLE_NAME (url, title, description) VALUES (?, ?, ?);" "$url" "$title" "$description"

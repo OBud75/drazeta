@@ -38,3 +38,5 @@ _start:
     mov eax, 1                         
     xor ebx, ebx                       
     int 0x80                           
+
+; Il est préférable de diviser le pogramme en fonctions (get_input, exit...) puis de les appeler depuis _start
