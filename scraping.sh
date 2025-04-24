@@ -57,3 +57,6 @@ rm sitemap.xml asset_urls.txt
 
 # Au lieu d'échapper les apostrophes, on peut (comme vous l'avez fait en python), passer les variables en arguments
 # "INSERT INTO $TABLE_NAME (url, title, description) VALUES (?, ?, ?);" "$url" "$title" "$description"
+
+# Cela évite au passage de signaler une injection SQL si le titre de la page est par exemple "L'année de WESTERN UNION"
+# On se retrouverait avec des "SQL injection detected" dans les logs etc.
